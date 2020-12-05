@@ -4,12 +4,12 @@
  * See: https://www.gatsbyjs.com/docs/gatsby-config/
  */
 
-/* module.exports = {
+module.exports = {
   
   plugins: [],
-} */
+}
 
-module.exports = {
+/* module.exports = {
   plugins: [
     {
       resolve: "gatsby-source-graphql",
@@ -24,3 +24,4 @@ module.exports = {
     },
   ],
 }; 
+ */
