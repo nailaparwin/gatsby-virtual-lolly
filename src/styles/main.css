@@ -1,0 +1,83 @@
+body{
+    text-align: center;
+    background-color: crimson;
+    font-family: open-sans,
+        Helvetica,
+        sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 1.8;
+    min-height: 100vh;
+}
+.container{
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.btnNavigate{
+    font-size: 2.5em;
+    font-family: Brush Script MT, Yellowtail, cursive;
+    text-shadow: #26f113 1px 1px 4px;
+    background-color:crimson;
+    border: solid 1px white;
+    border: none;
+    text-decoration: underline;
+    border-radius: 40%;
+    margin-top: 0.5em;
+    margin-bottom: 0.1em;
+}
+.listLollies{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.listLollies .lolliPop .lollyFormDiv .lolliPop{
+    height: 300px;
+}
+h1 {
+    font-size: 4.5em;
+    font-family: Brush Script MT, Yellowtail, cursive;
+    text-shadow: #f1e313 1px 1px 4px;
+    margin-top: 0.5em;
+    margin-bottom: 0.1em;
+}
+p {
+    font-size: 1em;
+    font-style: italic;
+    color: #ddd;
+    text-shadow: #23e4e4 1px 1px 4px;    
+    line-height: 1.1;
+}
+.lollyForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.lollyFormDiv{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.lollyFlavourDiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.colorPicker{
+    width: 90px;
+    height: 90px;
+    margin-top: -10px;
+    margin-left: -10px;
+}
+.colorPickerLabel{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin: 20px;
+    overflow: hidden;
+    
+}
+

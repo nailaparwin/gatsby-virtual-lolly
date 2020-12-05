@@ -4,7 +4,23 @@
  * See: https://www.gatsbyjs.com/docs/gatsby-config/
  */
 
-module.exports = {
-  /* Your site config here */
+/* module.exports = {
+  
   plugins: [],
-}
+} */
+
+module.exports = {
+  plugins: [
+    {
+      resolve: "gatsby-source-graphql",
+      options: {
+        // This type will contain remote schema Query type
+        typeName: `LOLLIES`,
+        // This is the field under which it's accessible
+        fieldName: `lollies`,
+        // URL to query from
+        url: `https://virtual-loly-with-gatsby.netlify.faunadb/.netlify/functions/newLolly`,
+      },
+    },
+  ],
+}; 
