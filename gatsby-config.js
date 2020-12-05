@@ -4,12 +4,12 @@
  * See: https://www.gatsbyjs.com/docs/gatsby-config/
  */
 
-module.exports = {
+/* module.exports = {
   
   plugins: [],
-}
+} */
 
-/* module.exports = {
+module.exports = {
   plugins: [
     {
       resolve: "gatsby-source-graphql",
@@ -18,10 +18,9 @@ module.exports = {
         typeName: `LOLLIES`,
         // This is the field under which it's accessible
         fieldName: `lollies`,
-        // URL to query from
-        url: `https://virtual-loly-with-gatsby.netlify.faunadb/.netlify/functions/newLolly`,
+        // URL to query from        
+        url: `https://virtual-lolly-with-gatsby-faunadb.netlify.app/.netlify/functions/newLolly`,
       },
     },
   ],
 }; 
- */

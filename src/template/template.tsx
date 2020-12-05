@@ -26,7 +26,7 @@ const Template = ({ pageContext: { data } }) => {
         <p className="bytheway">
           {data.sender}
           made this virtual lollipop for you. You can
-          <Link to="/createLolly">make your own</Link> to send to a friend who
+          <Link to="/createNew">make your own</Link> to send to a friend who
           deserve some sugary treat which won't rot their teeth...
         </p>
       </div>

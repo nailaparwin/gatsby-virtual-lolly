@@ -1,4 +1,4 @@
-/* const path = require("path");
+const path = require("path");
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
@@ -19,16 +19,18 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `);
 
+  
   console.log("this is");
   console.log(result);
+  if (result.data.lollies != null){
   result.data.lollies.getLollies.map((data) => {
     createPage({
       path: `${data.lollyPath}`,
-      component: path.resolve("./src/Template/Template.tsx"),
+      component: path.resolve("./src/template/template.tsx"),
       context: {
         data: data,
       },
     });
   });
+}
 };
- */

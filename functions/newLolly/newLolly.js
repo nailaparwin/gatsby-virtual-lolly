@@ -35,7 +35,7 @@ const typeDefs = gql`
 
 const resolvers = {
   Query: {
-    getLollies: async (root, args, context) => {
+    getLollies: async () => {
       try {
         const client = new faunadb.Client({
           secret: process.env.FAUNADB_ADMIN_SECRET,
