@@ -8,7 +8,7 @@ const query = faunadb.query;
 const typeDefs = gql`
 
   type Lolly {
-    id: ID!
+    id: ID
     recipientName: String!
     message: String!
     senderName: String!
@@ -35,7 +35,7 @@ const typeDefs = gql`
 
 const resolvers = {
   Query: {
-    getLollies: async () => {
+    getLollies: async() => {
       try {
         const client = new faunadb.Client({
           secret: process.env.FAUNADB_ADMIN_SECRET,
@@ -50,7 +50,7 @@ const resolvers = {
 
         return result.data.map((d) => {
           return {
-            id: d.ref.id,
+            id: d.ref,
             flavourTop: d.data.flavourTop,
             flavourMiddle: d.data.flavourMiddle,
             flavourBottom: d.data.flavourBottom,

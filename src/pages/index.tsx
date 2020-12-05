@@ -9,7 +9,7 @@ export default function Home() {
   const GET_LOLLY = gql`
 query GetLolly {
   getLollies {
-        id
+        
         flavourTop
         senderName
     }
