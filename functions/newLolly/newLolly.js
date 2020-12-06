@@ -1,9 +1,9 @@
 const { ApolloServer, gql } = require('apollo-server-lambda')
-const axios = require("axios");
+//const axios = require("axios");
 const faunadb = require("faunadb");
-const shortid = require("shortid")
 const query = faunadb.query;
-
+axios = require("axios"), 
+require("dotenv").config()
 
 const typeDefs = gql`
 
@@ -18,6 +18,7 @@ const typeDefs = gql`
   }
   type Query {
     getLollies: [Lolly!]
+    getLollyByPath(lollyPath: String!): Lolly
   }  
   type Mutation {
     createLolly(
@@ -62,21 +63,39 @@ const resolvers = {
         console.log("Error in fetching Data : ", error);
       }
     },
+  
+  getLollyByPath: async (_, { lollyPath }) => {
+    try {
+      console.log(lollyPath)
+      var result = await client.query(
+        q.Get(q.Match(q.Index("lolly_idx"), lollyPath))
+      )
+      return result.data
+    } catch (e) {
+      return e.toString()
+    }
   },
+},
   Mutation:{
     createLolly: async(_, args) => {
       console.log("create all")
       const client = new faunadb.Client({
         secret: process.env.FAUNADB_ADMIN_SECRET,
-      })
-      const id = shortid.generate();
-      args.lollyPath = id
+      })      
       const result = await client.query(
         query.Create(query.Collection("lollies"), {
           data: args
         })
       )
       console.log(result.data)
+      axios.post("https://api.netlify.com/build_hooks/5fcccc9726e26c69466fdc78")
+      .then(function (response) {
+        console.log('response');
+      })
+      .catch(function (error) {
+        console.error('error');
+      });
+
       return result.data
     }
   }

@@ -7,27 +7,26 @@ const Template = ({ pageContext: { data } }) => {
   return (
     <div className="createLolly">
       <Lolly
-        fillLollyTop={data.colorTop}
-        fillLollyMiddle={data.colorMiddle}
-        fillLollyBottom={data.colorBottom}
+        fillLollyTop={data.flavourTop}
+        fillLollyMiddle={data.flavourMiddle}
+        fillLollyBottom={data.flavourBottom}
       />
       <div className="info">
         <div className="details">
           <p id="recipient" className="recipient">
-            {data.recipient}
+            {data.recipientName}
           </p>
           <div id="message" className="message">
             {data.message}
           </div>
           <p id="from" className="from">
-            — {data.sender}
+            — {data.senderName}
           </p>
         </div>
         <p className="bytheway">
           {data.sender}
           made this virtual lollipop for you. You can
-          <Link to="/createNew">make your own</Link> to send to a friend who
-          deserve some sugary treat which won't rot their teeth...
+          <Link to="/createNew">make your own</Link> to send to a friend
         </p>
       </div>
     </div>

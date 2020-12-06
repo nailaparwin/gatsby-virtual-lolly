@@ -15,12 +15,12 @@ query GetLolly {
 }
 `
   
-  const { loading, error, data, refetch } = useQuery(GET_LOLLY);
+  //const { loading, error, data, refetch } = useQuery(GET_LOLLY);
   return (
   <div className="container">       
     <div className="listLollies">
     
-{console.log("dddd"  , data)}
+
     <Lolly fillLollyTop='#deaa43' fillLollyMiddle='#d52358'  fillLollyBottom='#e95946' />
     <Lolly fillLollyTop='green' fillLollyMiddle='red'  fillLollyBottom='blue' />
     <Lolly fillLollyTop='#deaa43' fillLollyMiddle='white'  fillLollyBottom='yellow' />

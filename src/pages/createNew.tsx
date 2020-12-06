@@ -1,7 +1,9 @@
 import React, {Ref, RefObject, useRef, useState} from 'react'
 import Header from '../components/Header'
 import Lolly from '../components/Lolly'
+const shortid = require("shortid")
 import {gql, useMutation, useQuery} from '@apollo/client'
+import { navigate } from 'gatsby'
 
 
 const createLollyMutation = gql`
@@ -49,6 +51,7 @@ export default function CreateNew(){
 
     const submitLollyForm = () =>{        
         console.log("sender", senderNameRef.current.value) 
+        const id = shortid.generate();      
         createLolly({
             variables: {
                 flavourTop: color1,
@@ -57,11 +60,12 @@ export default function CreateNew(){
                 recipientName: recipientNameRef.current.value,
                 message: messageRef.current.value,
                 senderName: senderNameRef.current.value,
-                lollyPath:''
+                lollyPath:id
              
             },
           });
           console.log("message sent")
+          navigate(`/lollies/${id}`)
         }      
     
     
