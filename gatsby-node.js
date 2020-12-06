@@ -2,11 +2,10 @@ const path = require("path");
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
-  const result = await graphql(`
+  /* const result = await graphql(`
     query MyQuery {
       lollies {
-        getLollies {
-          id
+        getLollies {          
             flavourTop
             flavourMiddle
             flavourBottom
@@ -21,8 +20,8 @@ exports.createPages = async ({ graphql, actions }) => {
 
   
   console.log("this is");
-  console.log(result);
-  if (result.data.lollies != null){
+  console.log(result); */
+  /* if (result.data.lollies != null){
   result.data.lollies.getLollies.map((data) => {
     createPage({
       path: `${data.lollyPath}`,
@@ -31,6 +30,6 @@ exports.createPages = async ({ graphql, actions }) => {
         data: data,
       },
     });
-  });
+  }); 
+}*/
 }
-};

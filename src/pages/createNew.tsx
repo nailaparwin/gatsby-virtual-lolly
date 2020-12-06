@@ -22,8 +22,7 @@ mutation createLolly(
       flavourMiddle: $flavourMiddle
       flavourBottom: $flavourBottom
       lollyPath: $lollyPath  
-  ) {
-    id
+  ) {    
     flavourTop
     flavourMiddle
     flavourBottom

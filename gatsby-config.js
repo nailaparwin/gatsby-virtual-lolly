@@ -18,7 +18,7 @@ module.exports = {
         typeName: `LOLLIES`,
         // This is the field under which it's accessible
         fieldName: `lollies`,
-        // URL to query from        
+        // URL to query from                
         url: `https://virtual-lolly-with-gatsby-faunadb.netlify.app/.netlify/functions/newLolly`,
       },
     },

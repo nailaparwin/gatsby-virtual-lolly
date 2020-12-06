@@ -7,8 +7,7 @@ const query = faunadb.query;
 
 const typeDefs = gql`
 
-  type Lolly {
-    id: ID
+  type Lolly {    
     recipientName: String!
     message: String!
     senderName: String!
@@ -49,8 +48,7 @@ const resolvers = {
         );
 
         return result.data.map((d) => {
-          return {
-            id: d.ref,
+          return {            
             flavourTop: d.data.flavourTop,
             flavourMiddle: d.data.flavourMiddle,
             flavourBottom: d.data.flavourBottom,
