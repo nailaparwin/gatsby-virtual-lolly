@@ -20,8 +20,8 @@ module.exports = {
         fieldName: `lollies`,
         // URL to query from                
         
-        url: `http://localhost:8888/.netlify/functions/newLolly`,
-        //url: `https://virtual-lolly-with-gatsby-faunadb.netlify.app/.netlify/functions/newLolly`,
+        //url: `http://localhost:8888/.netlify/functions/newLolly`,        
+        url: `https://virtual-lolly-with-gatsby-faunadb.netlify.app/.netlify/functions/newLolly`,
       },
     },
   ],
