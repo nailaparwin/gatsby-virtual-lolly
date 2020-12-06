@@ -88,12 +88,12 @@ const resolvers = {
         })
       )
       console.log(result.data)
-      axios.post("https://api.netlify.com/build_hooks/5fcccc9726e26c69466fdc78")
+      axios.post("https://api.netlify.com/build_hooks/5fcd107726e26cc9096fdb8e")
       .then(function (response) {
-        console.log('response');
+        console.log(response);
       })
       .catch(function (error) {
-        console.error('error');
+        console.error(error);
       });
 
       return result.data

@@ -4,7 +4,7 @@ import Lolly from '../components/Lolly'
 const shortid = require("shortid")
 import {gql, useMutation, useQuery} from '@apollo/client'
 import { navigate } from 'gatsby'
-
+import '../styles/main.css'
 
 const createLollyMutation = gql`
 mutation createLolly(
@@ -72,7 +72,7 @@ export default function CreateNew(){
 
     return (
         <div className="container">
-            <Header/>
+            
             <div className="lollyFormDiv">
                 <div>
                     <Lolly fillLollyTop={color1} fillLollyMiddle={color2} fillLollyBottom={color3}/>
