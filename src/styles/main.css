@@ -160,3 +160,16 @@ input[type=text] {
   border-radius: 40%;
     
 }
+
+.lollyFormSubmitNext .url button{
+      
+    font-size: 1em;
+  font-family: Brush Script MT, Yellowtail, cursive;
+  color:rgb(23, 203, 216);
+  background-color:  crimson;
+  text-shadow: #26f113 1px 1px 4px;        
+  border: none;
+  text-decoration: underline;
+  
+    
+}

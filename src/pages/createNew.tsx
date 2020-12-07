@@ -3,7 +3,7 @@ import Header from '../components/Header'
 import Lolly from '../components/Lolly'
 const shortid = require("shortid")
 import {gql, useMutation, useQuery} from '@apollo/client'
-import { navigate } from 'gatsby'
+import { navigate,  Link } from 'gatsby'
 import '../styles/main.css'
 
 const createLollyMutation = gql`
@@ -39,9 +39,9 @@ mutation createLolly(
 
 
 export default function CreateNew(){
-    const [color1, setColor1] = useState('red')
-    const [color2, setColor2] = useState('blue')
-    const [color3, setColor3] = useState('yellow')
+    const [color1, setColor1] = useState("#bec044")
+    const [color2, setColor2] = useState("#473564")
+    const [color3, setColor3] = useState("#e6194c")
     const [submit, setSubmit] = useState(false)
     const [sender, setSender] = useState('')
     const [message, setMessage] = useState('')
@@ -161,8 +161,10 @@ export default function CreateNew(){
                         <br/>
                         <div className="url">
                         Your lolly is freezing. Wait for a while<br/>
-                        you can see it here <br/>
-                        http://localhost:8888/lollies/{id}
+                        you can see it here <br/>    
+                        <button onClick={() => {navigate(`/lollies/${id}`)}}>                                           
+                            https://virtual-lolly-with-gatsby-faunadb.netlify.app/lollies/{id}
+                        </button>
                         </div>
                     </div>
                     {/* <input type="button" value='' onClick={() => {navigate(`/lollies/${id}`)}}/> */}
