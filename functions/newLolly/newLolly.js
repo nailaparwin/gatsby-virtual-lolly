@@ -77,8 +77,7 @@ const resolvers = {
   },
 },
   Mutation:{
-    createLolly: async(_, args) => {
-      console.log("create all")
+    createLolly: async(_, args) => {      
       const client = new faunadb.Client({
         secret: process.env.FAUNADB_ADMIN_SECRET,
       })      
@@ -86,8 +85,8 @@ const resolvers = {
         query.Create(query.Collection("lollies"), {
           data: args
         })
-      )
-      console.log(result.data)
+      );
+      
       axios.post("https://api.netlify.com/build_hooks/5fcd107726e26cc9096fdb8e")
       .then(function (response) {
         console.log(response);
@@ -95,7 +94,7 @@ const resolvers = {
       .catch(function (error) {
         console.error(error);
       });
-
+      console.log(result.data)
       return result.data
     }
   }

@@ -1,4 +1,4 @@
-import React, {Ref, RefObject, useRef, useState} from 'react'
+import React, {Ref, RefObject, useEffect, useRef, useState} from 'react'
 import Header from '../components/Header'
 import Lolly from '../components/Lolly'
 const shortid = require("shortid")
@@ -39,19 +39,29 @@ mutation createLolly(
 
 
 export default function CreateNew(){
-    const [color1, setColor1] = useState('pink')
-    const [color2, setColor2] = useState('pink')
-    const [color3, setColor3] = useState('pink')
-    
+    const [color1, setColor1] = useState('red')
+    const [color2, setColor2] = useState('blue')
+    const [color3, setColor3] = useState('yellow')
+    const [submit, setSubmit] = useState(false)
+    const [sender, setSender] = useState('')
+    const [message, setMessage] = useState('')
+    const [recipient, setRecipient] = useState('')
+
     const [createLolly] = useMutation(createLollyMutation);
-    console.log(createLolly)
+
     const recipientNameRef = useRef<HTMLInputElement>(null)
     const senderNameRef = useRef<HTMLInputElement>(null)
     const messageRef =  useRef<HTMLTextAreaElement>(null)
+    const id = shortid.generate();   
+    useEffect(()=>{
+
+    },[submit])
 
     const submitLollyForm = () =>{        
         console.log("sender", senderNameRef.current.value) 
-        const id = shortid.generate();      
+        setSender(senderNameRef.current.value)
+        setRecipient(recipientNameRef.current.value)
+        setMessage(messageRef.current.value)
         createLolly({
             variables: {
                 flavourTop: color1,
@@ -65,12 +75,13 @@ export default function CreateNew(){
             },
           });
           console.log("message sent")
-          navigate(`/lollies/${id}`)
+          //navigate(`/lollies/${id}`)
+          setSubmit(true)
         }      
     
     
-
-    return (
+    return(
+    (submit===false) ?  (
         <div className="container">
             
             <div className="lollyFormDiv">
@@ -108,7 +119,7 @@ export default function CreateNew(){
                         message
                         </label>
                         <textarea
-                        rows={15}
+                        rows={8}
                         
                         name="message"
                         id="message"
@@ -126,5 +137,38 @@ export default function CreateNew(){
                 </div>
             </div>
         </div>
+    ):(
+        <div className="container">
+            
+            <div className="lollyFormDiv">
+                <div>
+                    <Lolly fillLollyTop={color1} fillLollyMiddle={color2} fillLollyBottom={color3}/>
+
+                </div>
+                <div>
+                    <div className="lollyFormSubmitNext">
+                        <div className="to">
+                            To : {recipient}
+                        </div>
+                       
+                        <div className="msg">
+                           {message}
+                        </div>
+                        
+                        <div className="from">
+                         - {sender}
+                        </div>
+                        <br/>
+                        <div className="url">
+                        Your lolly is freezing. Wait for a while<br/>
+                        you can see it here <br/>
+                        http://localhost:8888/lollies/{id}
+                        </div>
+                    </div>
+                    {/* <input type="button" value='' onClick={() => {navigate(`/lollies/${id}`)}}/> */}
+            </div>
+            </div>
+            </div>
+    )
     )
 }
