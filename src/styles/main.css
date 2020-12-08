@@ -19,10 +19,8 @@ body{
     font-family: Brush Script MT, Yellowtail, cursive;
     text-shadow: #26f113 1px 1px 4px;
     background-color:crimson;
-    border: solid 1px white;
-    border: none;
-    text-decoration: underline;
-    border-radius: 40%;
+    border: solid 1px white;    
+    text-decoration: underline;    
     margin-top: 0.5em;
     margin-bottom: 0.1em;
 }
@@ -93,6 +91,8 @@ label{
 }
 input[type=text] {
     border: none;
+    color:crimson;
+    font-size: 1.0em;
     border-bottom: 5px solid rgb(7, 156, 175);
     text-align: center;
   }
@@ -100,7 +100,7 @@ input[type=text] {
     background-color: #195658;
     border: none;
     color: white;
-    padding: 16px 32px;
+    padding: 10px 20px;
     text-decoration: none;
     margin: 4px 2px;
     cursor: pointer;
@@ -109,6 +109,8 @@ input[type=text] {
     
     padding: 12px 20px;
     box-sizing: border-box;
+    color:crimson;
+    font-size: 1.0em;
     border: none;
     border-bottom: 5px solid rgb(7, 156, 175);
     border-radius: 4px;

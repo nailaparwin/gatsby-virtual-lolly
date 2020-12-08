@@ -46,13 +46,14 @@ export default function CreateNew(){
     const [sender, setSender] = useState('')
     const [message, setMessage] = useState('')
     const [recipient, setRecipient] = useState('')
+    const [urlid, setUrlId] = useState()
 
     const [createLolly] = useMutation(createLollyMutation);
 
     const recipientNameRef = useRef<HTMLInputElement>(null)
     const senderNameRef = useRef<HTMLInputElement>(null)
     const messageRef =  useRef<HTMLTextAreaElement>(null)
-    const id = shortid.generate();   
+    
     useEffect(()=>{
 
     },[submit])
@@ -62,6 +63,8 @@ export default function CreateNew(){
         setSender(senderNameRef.current.value)
         setRecipient(recipientNameRef.current.value)
         setMessage(messageRef.current.value)
+        const id = shortid.generate();   
+        setUrlId(id)
         createLolly({
             variables: {
                 flavourTop: color1,
@@ -162,8 +165,8 @@ export default function CreateNew(){
                         <div className="url">
                         Your lolly is freezing. Wait for a while<br/>
                         you can see it here <br/>    
-                        <button onClick={() => {navigate(`/lollies/${id}`)}}>                                           
-                            https://virtual-lolly-with-gatsby-faunadb.netlify.app/lollies/{id}
+                        <button onClick={() => {navigate(`/lollies/${urlid}`)}}>                                           
+                            https://virtual-lolly-with-gatsby-faunadb.netlify.app/lollies/{urlid}
                         </button>
                         </div>
                     </div>
